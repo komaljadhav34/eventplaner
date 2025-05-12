@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<style>
+ .navbar {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: black; /* Semi-transparent background */
+            padding: 10px 0; /* Padding for the navbar */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px; /* Increased space between items */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px; /* Increased font size */
+            padding: 10px 15px; /* Padding for buttons */
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px; /* Rounded corners for buttons */
+        }
+
+        .navbar a:hover {
+            background-color: #ffcc00; /* Background color on hover */
+            color: black; /* Text color on hover */
+        }
+
+ .about {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #ddd;
+        }
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .about p {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        .about .highlight {
+            color: #e91e63;
+            font-weight: bold;
+        }
+        .about .cta {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+        .about .cta a {
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .about .cta a:hover {
+            text-decoration: underline;
+        }
+</style>
+<body> 
+<nav class="navbar">
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="event.html">Our Events</a></li>
+		<li><a href="Services.html">Services</a></li>
+
+            </ul>
+        </nav>
+
+<div class="about" id="about">
+   <h2>
+    About Us
+   </h2>
+   <p>
+    At <span class="highlight">Event Planner</span>, we are dedicated to making your special occasions truly memorable. With years of experience in the event planning industry, our team of professionals is committed to delivering exceptional service and creating unforgettable experiences. We specialize in a wide range of events, including weddings, birthdays, ceremonies, and corporate events. Our attention to detail, creativity, and passion for perfection set us apart. Let us help you bring your vision to life and make your event a success.
+   </p>
+   <p>
+    Our mission is to provide personalized event planning services that cater to your unique needs and preferences. We work closely with our clients to understand their vision and ensure every detail is executed flawlessly. From the initial consultation to the final execution, we are with you every step of the way, ensuring a seamless and stress-free planning process.
+   </p>
+   <p class="cta">
+    Contact us today to learn more about our services and how we can help you plan your next event. We look forward to working with you and making your special occasion truly unforgettable. <a href="#contact"><a href="ContactUs.html">Get in Touch</a>
+  
+   </p>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Event</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #4CAF50;
+      outline: none;
+      background-color: #fff;
+    }
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    p {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+      margin-top: 20px;
+    }
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+        padding: 15px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add Event</h1>
+    <form id="eventForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+           <label for="eventType">Event Type:</label>
+      <select id="eventType" name="eventType">
+        <option value="Default">Select event type</option>
+        <option value="Ceremony">Ceremony</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Corporate Events">Corporate Events</option>
+      </select>
+
+      <label for="theme">Theme:</label>
+      <select id="theme" name="theme">
+        <option value="Default">Select a theme</option>
+        <option value="Theme 1">Theme 1</option>
+        <option value="Theme 2">Theme 2</option>
+        <option value="Theme 3">Theme 3</option>
+        <option value="Theme 4">Theme 4</option>
+        <option value="Theme 5">Theme 5</option>
+        <option value="Theme 6">Theme 6</option>
+      </select>
+
+      <label for="Services">Services:</label>
+<div id="Services">
+  <label><input type="checkbox" name="Services[]" value="Catering"> Catering</label><br>
+  <label><input type="checkbox" name="Services[]" value="Orchestra"> Orchestra</label><br>
+  <label><input type="checkbox" name="Services[]" value="Band and Baraat"> Band and Baraat</label><br>
+  <label><input type="checkbox" name="Services[]" value="Photography/Videography"> Photography/Videography</label><br>
+  <label><input type="checkbox" name="Services[]" value="Invitations"> Invitations</label><br>
+  <label><input type="checkbox" name="Services[]" value="Decorations"> Decorations</label>
+</div>
+
+      <label for="eventDate">Event Date:</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
+
+      <button type="submit">Add Event</button>
+    </form>
+  </div>
+
+  <script>
+document.getElementById('eventForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const eventType = document.getElementById('eventType');
+  const theme = document.getElementById('theme');
+  const services = document.querySelectorAll('input[name="Services[]"]:checked'); // Check for selected checkboxes
+
+  // Validate Event Type
+  if (eventType.value === 'Default') {
+    alert('Please select an Event Type.');
+    eventType.focus();
+    return;
+  }
+
+  // Validate Theme
+  if (theme.value === 'Default') {
+    alert('Please select a Theme.');
+    theme.focus();
+    return;
+  }
+
+  // Validate Services
+  if (services.length === 0) { // Check if no checkbox is selected
+    alert('Please select at least one Service.');
+    return;
+  }
+
+
+
+
+ function validateDate() {
+        let dateInput = document.getElementById('event-date').value;
+        let selectedDate = new Date(dateInput);
+        let today = new Date();
+        let maxDate = new Date();
+        maxDate.setMonth(today.getMonth() + 3);
+
+        if (selectedDate < today || selectedDate > maxDate) {
+            alert("Please select a date within the next 3 months.");
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+  alert('Event added successfully!');
+  window.location.href = 'home.php'; // Redirect to home page
+});
+
+      </script>
+  <p>Looking forward to making your event a memorable one!</p>
+</body>
+</html>

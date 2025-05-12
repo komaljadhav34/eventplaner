@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.example.com/background-image.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color:black; /* Semi-transparent background */
+            padding: 10px 0; /* Padding for the navbar */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px; /* Increased space between items */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px; /* Increased font size */
+            padding: 10px 15px; /* Padding for buttons */
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px; /* Rounded corners for buttons */
+        }
+
+        .navbar a:hover {
+            background-color: #ffcc00; /* Background color on hover */
+            color: black; /* Text color on hover */
+        }
+
+
+        .container {
+            max-width: 600px;
+            margin-top: 100px;
+            margin-left: 440px;
+            background: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4A90E2; /* A nice blue color for the heading */
+        }
+        .contact-info {
+            margin: 20px 0;
+        }
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .contact-info a {
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #D35400; /* Change color on hover */
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+            <ul>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="event.html">Our Events</a></li>
+		<li><a href="Services.html">Services</a></li>
+
+            </ul>
+        </nav>
+
+
+<div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+        <p>If you have any questions, feel free to reach out to us:</p>
+        <p><strong>Name:</strong> Team Event Planning</p>
+        <p><strong>Email:</strong> <a href="mailto:team@TEP.com">team@TEP.com</a></p>
+        <p><strong>Phone:</strong> +91 9022344345</p>
+        <p><strong>Address:</strong> Nanded, India</p>
+    </div>
+    <p class="footer">We look forward to hearing from you!</p>
+</div>
+
+</body>
+</html>

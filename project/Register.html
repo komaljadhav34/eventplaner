@@ -1,0 +1,134 @@
+<?php
+// Include your database connection
+@include 'config.php';
+
+// Check if the form is submitted
+if(isset($_POST['submit'])) {
+
+    // Get the form data
+    $email_id = mysqli_real_escape_string($conn, $_POST['email_id']);
+    $event_name = mysqli_real_escape_string($conn, $_POST['event_name']);
+    $date = mysqli_real_escape_string($conn, $_POST['date']);
+    $location = mysqli_real_escape_string($conn, $_POST['location']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+
+
+    // Insert data into the event_table
+    $insert = "INSERT INTO event_table (email_id, event_name, date, location, description) 
+               VALUES (?, ?, ?, ?, ?)";
+
+    // Prepare the SQL statement to prevent SQL injection
+    $stmt = $conn->prepare($insert);
+
+    // Bind the parameters to the prepared statement
+    $stmt->bind_param("sssss", $email_id, $event_name, $date, $location, $description);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        echo "Event successfully added to the database!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: #e9ecef;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Planner</h1>
+    </header>
+    <main>
+        <section id="event-form">
+            <h2>Add Event</h2>
+            <form id="add-event-form">
+                <input type="email" id="email-id" placeholder="Email-id" required>
+                <input type="text" id="event-name" placeholder="Event Name" required>
+                <input type="date" id="event-date" required>
+                <input type="text" id="event-location" placeholder="Location" required>
+                <textarea id="event-description" placeholder="Description" required></textarea>
+                <button type="submit">Add Event</button>
+            </form>
+        </section>
+        <section id="event-list">
+            <h2>Upcoming Events</h2>
+            <ul id="events">
+                <!-- Events will be dynamically added here -->
+            </ul>
+        </section>
+    </main>
+    <h2>We will Contact you soon!</h2>
+</body>
+</html>
